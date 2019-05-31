@@ -17,18 +17,18 @@ let playedMove = '';
 //forReset
 const reset = document.getElementById('reset');
 //Array of possibilities
-let gameArr = ['scissor','paper','rock'];
+let gameArr = ['scissor', 'paper', 'rock'];
 //variablesForResult
 let humansScore = 0;
 let pcScore = 0;
 let tie = 0;
 //add EventLiseners OnClick
-const  rockElClicked = rockEl.addEventListener('click', event => {
-	getResultForRock();
+const rockElClicked = rockEl.addEventListener('click', event => {
+    getResultForRock();
     setValueToSore();
     movesPlayed(event.target.id);
-   
-   
+
+
 });
 
 
@@ -45,100 +45,103 @@ const scissorELClicked = scissorEl.addEventListener('click', event => {
 
 });
 reset.addEventListener('click', event => {
-humansScore = 0;
-pcScore = 0;
-tie = 0;
+    humansScore = 0;
+    pcScore = 0;
+    tie = 0;
 
 })
 // Core Logic Start here
 
 //get pospossabilities number
-function getRandomPossibilities(){
-let mathRandom = Math.floor(Math.random() * 3);
-return mathRandom;
+function getRandomPossibilities() {
+    let mathRandom = Math.floor(Math.random() * 3);
+    return mathRandom;
 }
 //get random move
-function getRandomMove(){
-let random = getRandomPossibilities();
-return gameArr[random];
+function getRandomMove() {
+    let random = getRandomPossibilities();
+    return gameArr[random];
 
 
 }
 //cheeks if  played rock
-function getResultForRock(){
-let randomMove = getRandomMove();
-playedMove = randomMove;
-if(randomMove === 'paper'){
-console.log('pcWon');
-pcScore++;
-console.log(randomMove);
+function getResultForRock() {
+    let randomMove = getRandomMove();
+    playedMove = randomMove;
+    if (randomMove === 'paper') {
+        console.log('pcWon');
+        pcScore++;
+        console.log(randomMove);
 
+    }
+    else if (randomMove === 'scissor') {
+        console.log('humanWon');
+        humansScore++;
+
+
+    }
+    else if (randomMove === 'rock') {
+        console.log('tie');
+        tie++;
+    }
 }
-else if(randomMove === 'scissor'){
-console.log('humanWon');
-humansScore++;
-
-
-}
-else if(randomMove === 'rock'){
-console.log('tie');
-tie++;
-}}
 
 //cheeks if  played scissor
-function getResultForScissor(){
-let randomMove = getRandomMove();
-playedMove = randomMove;
-if(randomMove === 'paper'){
-console.log('humanWon');
-humansScore++;
+function getResultForScissor() {
+    let randomMove = getRandomMove();
+    playedMove = randomMove;
+    if (randomMove === 'paper') {
+        console.log('humanWon');
+        humansScore++;
 
 
+    }
+    else if (randomMove === 'scissor') {
+        console.log('tie');
+        tie++;
+
+        movesPlayed(randomMove);
+    }
+    else if (randomMove === 'rock') {
+        console.log('pcWon');
+        pcScore++;
+
+    }
 }
-else if(randomMove === 'scissor'){
-console.log('tie');
-tie++;
-
-movesPlayed(randomMove);
-}
-else if(randomMove === 'rock'){
-console.log('pcWon');
-pcScore++;
-
-}}
 // cheeks if played paper 
 
 
-function getResultForPaper(){
-let randomMove = getRandomMove();
-playedMove = randomMove;
-if(randomMove === 'paper'){
-console.log('tie');
-tie++;
-}
-else if(randomMove === 'scissor'){
-console.log('tie');
-pcScore++;
+function getResultForPaper() {
+    let randomMove = getRandomMove();
+    playedMove = randomMove;
+    if (randomMove === 'paper') {
+        console.log('tie');
+        tie++;
+    }
+    else if (randomMove === 'scissor') {
+        console.log('tie');
+        pcScore++;
 
+    }
+    else if (randomMove === 'rock') {
+        console.log('humanWon');
+        humansScore++;
+    }
 }
-else if(randomMove === 'rock'){
-console.log('humanWon');
-humansScore++;
-}}
 
 // sets value to SCore
-function setValueToSore(){
+function setValueToSore() {
 
-   userScoreEl.innerHTML  = humansScore;
-   compScoreEl.innerHTML  = pcScore;
-   tieEl.innerHTML = tie;
-   
+    userScoreEl.innerHTML = humansScore;
+    compScoreEl.innerHTML = pcScore;
+    tieEl.innerHTML = tie;
+
 }
 //played moves in the game bye pc and user
 
-function movesPlayed(id){
-userPlayedEl.innerHTML = id;
-compPlayedEl.innerHTML =  playedMove;
-;
+function movesPlayed(id) {
+    userPlayedEl.innerHTML = id;
+    compPlayedEl.innerHTML = playedMove;
+    ;
 
 }
