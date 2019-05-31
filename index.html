@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Rock,Paper,Scissors!</title>
+    <link rel="stylesheet" type="text/css" href="./main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Rock,Paper,Scissors!</h1>
+        <main>
+            <div class="d-flex justify-content-around">
+                <img src="./assets/img/rock.jpg" alt="rock" id="rock">
+                <img src="./assets/img/scissor.jpg" alt="scissor" id="scissor">
+                <img src="./assets/img/Paper.jpg" alt="Paper" id="paper">
+            </div>
+        </main>
+        <div class="d-flex top">
+            <div>
+                <h1>Results </h1>
+                <div>You played: <strong id="userplayed"></strong></div>
+                <div>Computer played:<strong id="complayd"></strong></div>
+            </div>
+      
+        <div class="right">
+            <h1>Score</h1>
+            <div >User Score Is Now:     <i id="scoreUser">0</i></div>
+            <div >Computer is score now: <i id="scoreComp">0</i></div>
+            <div >tie: <i id="tie">0</i></div>
+            <a href=""><div id="reset">Reset Score</div></a>
+        </div>
+    </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
